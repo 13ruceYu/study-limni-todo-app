@@ -4,7 +4,7 @@
       <li
         v-for="todo in todos"
         :key="todo.name"
-        :style="{ transform: `translate3s(-${currentIndex * 100}%, 0, 0)` }"
+        :style="{ transform: `translate3d(-${currentIndex * 100}%, 0, 0)` }"
       >
         <Todo
           :todo="todo"
@@ -28,10 +28,57 @@ export default {
   computed: {
     ...mapState(['todos', 'currentIndex', 'selected'])
   },
+  mounted() {
+    const touch = {}
+    this.$el.addEventListener('touchstart', evt => {
+      touch.startX = evt.touches[0].clientX
+      touch.endX = 0
+    })
+    this.$el.addEventListener('touchmove', evt => {
+      touch.endX = evt.touches[0].clientX
+    })
+    this.$el.addEventListener('touchend', () => {
+      if (!touch.endX || Math.abs(touch.endX - touch.startX) < 10) {
+        return
+      }
+      if (touch.endX < touch.startX) {
+        this.nextTodo()
+      } else {
+        this.prevTodo()
+      }
+    })
+  },
   methods: {
     ...mapMutations(['selectTodo', 'nextTodo', 'prevTodo'])
   }
 }
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+.todo-list {
+  padding: 0 32px;
+  height: 400px;
+  transition: all 0.5s ease;
+
+  ul {
+    display: flex;
+    height: 100%;
+
+    li {
+      display: flex;
+      flex: 1;
+      height: 100%;
+      transition: transform 0.5s ease;
+
+      .todo {
+        background: #fff;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.todo-list__selected {
+  transform: scaleX(1.25);
+}
+</style>

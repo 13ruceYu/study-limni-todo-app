@@ -47,7 +47,6 @@ export default {
     justify-content: center;
     flex: 1;
     margin: 0;
-    border: 1px solid pink;
   }
 
   span {

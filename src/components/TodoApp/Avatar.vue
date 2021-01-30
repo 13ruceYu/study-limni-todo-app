@@ -86,6 +86,7 @@ export default {
   .avatar_date {
     margin-top: 44px;
     font-size: 14px;
+    margin-bottom: 16px;
   }
 }
 

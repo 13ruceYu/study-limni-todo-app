@@ -10,6 +10,7 @@
     <Avatar />
     <Gradient />
     <TodoList />
+    <TodoListDetail />
   </div>
 </template>
 
@@ -18,9 +19,10 @@ import AppBar from '../components/TodoApp/AppBar'
 import Avatar from '../components/TodoApp/Avatar'
 import Gradient from '../components/TodoApp/Gradient'
 import TodoList from '../components/TodoApp/TodoList'
+import TodoListDetail from '../components/TodoApp/TodoListDetail'
 export default {
   name: 'TodoApp',
-  components: { AppBar, Avatar, Gradient, TodoList },
+  components: { AppBar, Avatar, Gradient, TodoList, TodoListDetail },
   data() {
     return {}
   },
@@ -38,7 +40,7 @@ export default {
 <style lang="less">
 #todo-app {
   color: #fff;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
 }
