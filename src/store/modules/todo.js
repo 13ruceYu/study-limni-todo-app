@@ -1,4 +1,7 @@
 import { tomorrow } from '../../utils/date'
+import {
+  SELECT_TODO
+} from '../mutation-types'
 
 const todo = {
   namespaced: true,
@@ -85,7 +88,7 @@ const todo = {
     }
   },
   mutations: {
-    selectTodo (state, selected) {
+    [SELECT_TODO] (state, selected) {
       state.unselect = null
       state.selected = selected
     },

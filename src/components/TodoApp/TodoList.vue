@@ -9,7 +9,7 @@
         <Todo
           :todo="todo"
           :selected="selected && todo === selected.todo"
-          @select="selectTodo"
+          @select="select_todo"
         />
       </li>
     </ul>
@@ -49,7 +49,7 @@ export default {
     })
   },
   methods: {
-    ...mapMutations('todo', ['selectTodo', 'nextTodo', 'prevTodo'])
+    ...mapMutations('todo', ['select_todo', 'nextTodo', 'prevTodo'])
   }
 }
 </script>
