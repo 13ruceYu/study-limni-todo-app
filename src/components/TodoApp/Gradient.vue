@@ -19,7 +19,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['todos', 'currentIndex'])
+    ...mapState('todo', ['todos', 'currentIndex'])
   },
   methods: {}
 }

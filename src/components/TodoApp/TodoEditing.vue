@@ -30,10 +30,10 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['selected', 'editing'])
+    ...mapState('todo', ['selected', 'editing'])
   },
   methods: {
-    ...mapMutations(['toggleEditing'])
+    ...mapMutations('todo', ['toggleEditing'])
   }
 }
 </script>

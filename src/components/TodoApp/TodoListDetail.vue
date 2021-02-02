@@ -17,10 +17,10 @@ export default {
     Todo
   },
   computed: {
-    ...mapState(['selected', 'unselect'])
+    ...mapState('todo', ['selected', 'unselect'])
   },
   methods: {
-    ...mapMutations(['unselectTodo']),
+    ...mapMutations('todo', ['unselectTodo']),
     handleEnter(el) {
       Object.assign(el.style, {
         top: `${this.selected.rect.top}px`,

@@ -26,7 +26,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['todos', 'currentIndex', 'selected'])
+    ...mapState('todo', ['todos', 'currentIndex', 'selected'])
   },
   mounted() {
     const touch = {}
@@ -49,7 +49,7 @@ export default {
     })
   },
   methods: {
-    ...mapMutations(['selectTodo', 'nextTodo', 'prevTodo'])
+    ...mapMutations('todo', ['selectTodo', 'nextTodo', 'prevTodo'])
   }
 }
 </script>

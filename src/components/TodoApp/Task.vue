@@ -34,7 +34,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['deleteTask'])
+    ...mapMutations('todo', ['deleteTask'])
   }
 }
 </script>

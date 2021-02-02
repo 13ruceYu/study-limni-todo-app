@@ -23,9 +23,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['username']),
-    ...mapState(['selected']),
-    ...mapGetters(['todayTasks'])
+    ...mapState('todo', ['username', 'selected']),
+    ...mapGetters('todo', ['todayTasks'])
   },
   filters: {
     dateString(val) {

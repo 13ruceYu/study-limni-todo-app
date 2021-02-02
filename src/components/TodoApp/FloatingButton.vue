@@ -19,8 +19,8 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['selected', 'editing']),
-    ...mapGetters(['currentTodo']),
+    ...mapState('todo', ['selected', 'editing']),
+    ...mapGetters('todo', ['currentTodo']),
     gradientColor() {
       const colorLeft = `color-stop(30%, ${this.currentTodo.colors[0]})`
       const colorRight = `to(${this.currentTodo.colors[1]})`
@@ -28,7 +28,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['toggleEditing'])
+    ...mapMutations('todo', ['toggleEditing'])
   }
 }
 </script>
