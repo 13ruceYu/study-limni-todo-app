@@ -2,23 +2,22 @@
   <transition name="show" @enter="handleEnter" @leave="handleLeave">
     <div class="todo-detail" v-if="selected">
       <AppBar @left="unselectTodo" />
-      <Todo :todo="selected.todo" :active="true" @close="unselectTodo"></Todo>
+      <todo :todo="selected.todo" :active="true" @close="unselectTodo" />
     </div>
   </transition>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import AppBar from './AppBar'
-import Todo from './Todo'
+import AppBar from './AppBar.vue'
+import Todo from './Todo.vue'
 export default {
-  name: 'TodoListDetail',
-  components: { AppBar, Todo },
-  data() {
-    return {}
+  components: {
+    AppBar,
+    Todo
   },
   computed: {
-    ...mapState(['selected', 'unselected'])
+    ...mapState(['selected', 'unselect'])
   },
   methods: {
     ...mapMutations(['unselectTodo']),
@@ -58,12 +57,97 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .todo-detail {
   position: fixed;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  border-radius: 0;
+  background-color: white;
   color: #666;
+  will-change: top, left, width, height;
+
+  .todo {
+    margin: 0;
+    margin-top: -44px;
+    padding: 0 20px;
+    box-shadow: none;
+  }
+  .todo_head,
+  .todo_body {
+    transform: translate3d(0, 88px, 0);
+  }
+  .todo_menu {
+    opacity: 0;
+  }
+  .todo_tasks {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  .app-bar {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.show-enter-to,
+.show-leave {
+  border-radius: 0;
+
+  .todo {
+    padding: 0 20px;
+  }
+  .todo_head,
+  .todo_body {
+    transform: translate3d(0, 88px, 0);
+  }
+  .todo_menu {
+    opacity: 0;
+  }
+  .todo_tasks {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  .app-bar {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.show-leave-to,
+.show-enter {
+  border-radius: 8px;
+
+  .todo {
+    padding: 0;
+  }
+  .todo_head {
+    transform: translate3d(0, 0, 0);
+  }
+  .todo_body {
+    transform: translate3d(0, 189px, 0);
+  }
+  .todo_menu {
+    opacity: 1;
+  }
+  .todo_tasks {
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+  }
+  .app-bar {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.show-enter-active,
+.show-leave-active {
+  transition: all 0.5s ease;
+
+  .todo,
+  .todo_head,
+  .todo_body,
+  .todo_menu,
+  .todo_tasks,
+  .app-bar {
+    transition: all 0.5s ease;
+  }
 }
 </style>

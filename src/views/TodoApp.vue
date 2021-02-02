@@ -11,6 +11,8 @@
     <Gradient />
     <TodoList />
     <TodoListDetail />
+    <FloatingButton />
+    <TodoEditing />
   </div>
 </template>
 
@@ -20,9 +22,19 @@ import Avatar from '../components/TodoApp/Avatar'
 import Gradient from '../components/TodoApp/Gradient'
 import TodoList from '../components/TodoApp/TodoList'
 import TodoListDetail from '../components/TodoApp/TodoListDetail'
+import FloatingButton from '../components/TodoApp/FloatingButton'
+import TodoEditing from '../components/TodoApp/TodoEditing'
 export default {
   name: 'TodoApp',
-  components: { AppBar, Avatar, Gradient, TodoList, TodoListDetail },
+  components: {
+    AppBar,
+    Avatar,
+    Gradient,
+    TodoList,
+    TodoListDetail,
+    FloatingButton,
+    TodoEditing
+  },
   data() {
     return {}
   },

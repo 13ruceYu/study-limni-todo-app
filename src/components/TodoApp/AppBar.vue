@@ -1,5 +1,5 @@
 <template>
-  <div id="app-bar">
+  <div class="app-bar">
     <span class="app-bar_l" @click="$emit('left')">
       <i :class="['fa', `fa-${left}`]"></i>
     </span>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: '',
+  name: 'AppBar',
   components: {},
   props: {
     title: {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="less">
-#app-bar {
+.app-bar {
   display: flex;
   align-items: center;
   height: 44px;
@@ -47,6 +47,7 @@ export default {
     justify-content: center;
     flex: 1;
     margin: 0;
+    font: inherit;
   }
 
   span {

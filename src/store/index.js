@@ -99,10 +99,10 @@ export default new Vuex.Store({
     editing: null
   },
   getters: {
-    currentTodo(state) {
+    currentTodo (state) {
       return state.todos[state.currentIndex]
     },
-    todayTasks(state) {
+    todayTasks (state) {
       const tasks = []
       state.todos.forEach(todo => {
         todo.tasks.forEach(task => {
@@ -115,28 +115,28 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    selectTodo(state, selected) {
+    selectTodo (state, selected) {
       state.unselect = null
       state.selected = selected
     },
-    unselectTodo(state) {
+    unselectTodo (state) {
       state.unselect = state.selected
       state.selected = null
     },
-    nextTodo(state) {
+    nextTodo (state) {
       if (state.currentIndex < state.todos.length - 1) {
         state.currentIndex++
       }
     },
-    prevTodo(state) {
+    prevTodo (state) {
       if (state.currentIndex > 0) {
         state.currentIndex--
       }
     },
-    deleteTask(_, { task }) {
+    deleteTask (_, { task }) {
       task.deleted = true
     },
-    toggleEditing(state) {
+    toggleEditing (state) {
       if (state.editing && state.editing.text) {
         state.selected.todo.tasks.unshift({
           title: state.editing.text,

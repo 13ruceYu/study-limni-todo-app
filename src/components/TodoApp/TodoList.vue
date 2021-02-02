@@ -60,24 +60,20 @@ export default {
   height: 400px;
   transition: all 0.5s ease;
 
-  ul {
+  > ul,
+  > ul > li {
     display: flex;
     height: 100%;
-
-    li {
-      display: flex;
-      flex: 1;
-      height: 100%;
-      transition: transform 0.5s ease;
-
-      .todo {
-        background: #fff;
-        border-radius: 8px;
-      }
-    }
+  }
+  > ul > li {
+    flex: 1;
+    transition: transform 0.5s ease;
+  }
+  .todo {
+    border-radius: 8px;
+    background-color: white;
   }
 }
-
 .todo-list__selected {
   transform: scaleX(1.25);
 }
