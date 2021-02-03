@@ -1,5 +1,6 @@
 <template>
   <div id="todo-app">
+    <Gradient />
     <AppBar
       title="Yo"
       left="bars"
@@ -8,7 +9,6 @@
       @right="handleSearchClick"
     />
     <Avatar />
-    <Gradient />
     <TodoList />
     <TodoListDetail />
     <FloatingButton />
@@ -52,8 +52,8 @@ export default {
 <style lang="less">
 #todo-app {
   color: #fff;
-  height: 100vh;
   width: 100%;
+  padding-bottom: 20px;
   overflow: hidden;
 }
 </style>
